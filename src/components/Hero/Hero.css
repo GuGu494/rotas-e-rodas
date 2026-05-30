@@ -44,7 +44,7 @@
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 .hero h1 {
   font-family:'Cormorant Garamond',serif;
-  color:var(--areia); font-size:clamp(2.8rem,5vw,4.2rem);
+  color:var(--areia); font-size:clamp(2rem,8vw,4.2rem);
   line-height:1.08; font-weight:600; margin-bottom:24px;
 }
 .hero h1 em { color:var(--terra2); font-style:normal; }
@@ -83,4 +83,8 @@
 @media(max-width:900px){
   .hero-content { padding:140px 24px 80px; }
   .hero-map { display:none; }
+}
+@media(max-width:600px){
+  .hero-btns { flex-direction: column; width: 100%; }
+  .btn-prim, .btn-sec { width: 100%; justify-content: center; }
 }

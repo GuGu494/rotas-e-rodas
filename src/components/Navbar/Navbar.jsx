@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Bike, Motorbike, Car } from 'lucide-react';
+import { Bike, Motorbike, Car, Menu, X } from 'lucide-react';
 import './Navbar.css';
 import logo2 from '../../assets/icones/logo2.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation(); 
 
   useEffect(() => {
@@ -21,6 +22,11 @@ export default function Navbar() {
     handleScroll(); 
     
     return () => window.removeEventListener('scroll', handleScroll);
+  }, [location]);
+
+  // Close menu when route changes
+  useEffect(() => {
+    setMenuOpen(false);
   }, [location]);
 
   const isHome = location.pathname === '/';
@@ -39,8 +45,12 @@ export default function Navbar() {
         <img src={logo2} alt="Logo Rotas & Rodas" style={{ height: '80px', width: 'auto', objectFit: 'contain' }} />
       </Link>
       
-      <div className="nav-links">
-        <a href="/#sobre">Sobre</a>
+      <div className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <X size={28} color="var(--areia)" /> : <Menu size={28} color="var(--areia)" />}
+      </div>
+
+      <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <a href="/#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
         
         {/* CORREÇÃO AQUI: Voltamos para a tag <a> para puxar a cor branca do CSS */}
         <div className="nav-dropdown">
@@ -53,14 +63,14 @@ export default function Navbar() {
             Rotas e Viagens ▾
           </a>
           <div className="dropdown-menu">
-            <Link to="/rotas/cicloturismo" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Bike size={18} /> Cicloturismo</Link>
-            <Link to="/rotas/mototurismo" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Motorbike size={18} /> Mototurismo</Link>
-            <Link to="/rotas/offroad" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Car size={18} /> Off-Road 4x4</Link>
+            <Link to="/rotas/cicloturismo" style={{ display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => setMenuOpen(false)}><Bike size={18} /> Cicloturismo</Link>
+            <Link to="/rotas/mototurismo" style={{ display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => setMenuOpen(false)}><Motorbike size={18} /> Mototurismo</Link>
+            <Link to="/rotas/offroad" style={{ display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => setMenuOpen(false)}><Car size={18} /> Off-Road 4x4</Link>
           </div>
         </div>
 
-        <Link to="/blog">Blog</Link>
-        <a href="/#solicitar" className="nav-cta">
+        <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+        <a href="/#solicitar" className="nav-cta" onClick={() => setMenuOpen(false)}>
           Solicitar Rota
         </a>
       </div>

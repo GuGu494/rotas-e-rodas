@@ -70,6 +70,6 @@ h2.sec-title {
 }
 @media(max-width:600px){
   .depo-grid { grid-template-columns:1fr; }
-  .stats-bar { flex-wrap:wrap; }
-  .stat-item { min-width:50%; border-right:none; border-bottom:1px solid var(--areia2); }
+  .stats-bar { flex-direction: column; }
+  .stat-item { max-width: 100%; width: 100%; border-right:none; border-bottom:1px solid var(--areia2); }
 }
