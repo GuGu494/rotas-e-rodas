@@ -1,0 +1,75 @@
+/* src/App.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  --verde: #1a3328;
+  --verde2: #253d30;
+  --verde3: #2f5240;
+  --terra: #b85c25;
+  --terra2: #d4703a;
+  --areia: #f0ebe0;
+  --areia2: #e8e1d4;
+  --creme: #faf7f2;
+  --pedra: #3d3d3d;
+  --cinza: #7a7060;
+  --branco: #ffffff;
+  --r: 12px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Outfit',sans-serif; background:var(--creme); color:var(--pedra); overflow-x:hidden; }
+
+/* ── TEXTURA DE FUNDO ── */
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:0.4;
+}
+
+/* ─────── STATS BAR ─────── */
+.stats-bar {
+  background:#fff; border-bottom:1px solid var(--areia2);
+  display:flex; justify-content:center;
+  padding:0; overflow:hidden;
+}
+.stat-item {
+  flex:1; max-width:220px; padding:28px 24px; text-align:center;
+  border-right:1px solid var(--areia2); transition:background 0.2s;
+}
+.stat-item:last-child { border-right:none; }
+.stat-item:hover { background:var(--areia); }
+.stat-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem; font-weight:700; color:var(--verde); line-height:1;
+}
+.stat-lbl { font-size:0.72rem; color:var(--cinza); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+
+/* ─────── SEÇÕES GERAIS ─────── */
+section { position:relative; z-index:1; }
+.sec-pad { padding:100px 48px; }
+.sec-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  color:var(--terra); font-size:0.72rem; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:14px;
+}
+.sec-tag::before { content:''; width:24px; height:2px; background:var(--terra); }
+h2.sec-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.5vw,2.8rem); font-weight:600;
+  color:var(--verde); line-height:1.15; margin-bottom:16px;
+}
+.sec-sub { color:var(--cinza); font-size:0.9rem; line-height:1.75; max-width:500px; font-weight:300; }
+
+/* ─────── RESPONSIVO ─────── */
+@media(max-width:900px){
+  .depo-grid { grid-template-columns:1fr 1fr; }
+  .videos-grid { grid-template-columns:1fr; }
+  .sec-pad { padding:70px 24px; }
+}
+@media(max-width:600px){
+  .depo-grid { grid-template-columns:1fr; }
+  .stats-bar { flex-wrap:wrap; }
+  .stat-item { min-width:50%; border-right:none; border-bottom:1px solid var(--areia2); }
+}
