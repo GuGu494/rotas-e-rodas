@@ -22,7 +22,7 @@ export default function Sobre() {
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26,51,40,0.95) 0%, rgba(26,51,40,0.1) 60%)' }}></div>
           
           {/* Caixa de Citação igual a da sua imagem */}
-          <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(26,51,40,0.85)', backdropFilter: 'blur(10px)', padding: '24px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(26,51,40,0.85)', backdropFilter: 'blur(10px)', padding: '24px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
             <p style={{ color: '#fff', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: '1.6', marginBottom: '8px' }}>
               "Explorar o mundo sozinha não é sobre não ter medo, é sobre ir com medo mesmo e descobrir do que você é capaz."
             </p>
