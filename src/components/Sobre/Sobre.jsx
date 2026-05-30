@@ -6,8 +6,8 @@ import fotoSobre from '../../assets/imagens/imagemSobre.jpeg';
 
 export default function Sobre() {
   return (
-    <section className="sec-pad" id="sobre" style={{ background: '#faf9f6' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '64px', alignItems: 'center' }}>
+    <section className="sec-pad sobre" id="sobre" style={{ background: '#faf9f6' }}>
+      <div className="sobre-grid">
         
         {/* ─── LADO ESQUERDO: FOTO E CITAÇÃO ─── */}
         <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.08)', height: '600px', background: 'var(--verde)' }}>
