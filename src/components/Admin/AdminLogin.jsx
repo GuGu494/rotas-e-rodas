@@ -35,7 +35,7 @@ export default function AdminLogin() {
       justifyContent: 'center',
       background: 'var(--creme)'
     }}>
-      <div style={{
+      <div className="admin-login-box" style={{
         background: '#fff',
         padding: '48px',
         borderRadius: '16px',
@@ -96,6 +96,11 @@ export default function AdminLogin() {
           </a>
         </div>
       </div>
+      <style>{`
+        @media(max-width:600px){
+          .admin-login-box { padding: 32px 24px !important; margin: 0 16px; }
+        }
+      `}</style>
     </div>
   );
 }

@@ -19,6 +19,7 @@
   background:rgba(26,51,40,0.9); backdrop-filter:blur(10px);
   border-radius:10px; padding:16px 20px;
   border:1px solid rgba(240,235,224,0.1);
+  text-align: center;
 }
 .sobre-img-badge p { color:var(--areia); font-size:0.82rem; line-height:1.6; font-style:italic; }
 .sobre-img-badge cite {

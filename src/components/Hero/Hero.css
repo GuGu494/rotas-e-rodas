@@ -3,6 +3,7 @@
   min-height:100vh; position:relative;
   background:var(--verde);
   display:flex; align-items:center; overflow:hidden;
+  width: 100%; max-width: 100vw;
 }
 .hero-video-bg {
   position: absolute;

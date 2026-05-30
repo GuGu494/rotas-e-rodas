@@ -137,9 +137,19 @@ export default function AdminDashboard() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--creme)', paddingBottom: '80px' }}>
+      <style>{`
+        @media(max-width:768px){
+          .admin-header { padding: 16px 20px !important; flex-direction: column; gap: 16px; text-align: center; }
+          .admin-header-left { flex-direction: column; gap: 8px !important; border-left: none !important; padding-left: 0 !important; }
+          .admin-main { padding: 0 16px !important; margin: 32px auto !important; }
+          .admin-form { padding: 24px !important; }
+          .admin-grid { grid-template-columns: 1fr !important; }
+          .admin-post-item { flex-direction: column; text-align: center; gap: 12px; }
+        }
+      `}</style>
       {/* HEADER DO ADMIN */}
-      <header style={{ background: 'var(--verde)', padding: '20px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+      <header className="admin-header" style={{ background: 'var(--verde)', padding: '20px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="admin-header-left" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
           <Link to="/" style={{ color: 'var(--areia)', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.95rem' }}>
             ← Voltar para o Site
           </Link>
@@ -162,7 +172,7 @@ export default function AdminDashboard() {
       </header>
 
       {/* ÁREA DE POSTAGEM */}
-      <main style={{ maxWidth: '800px', margin: '48px auto', padding: '0 24px' }}>
+      <main className="admin-main" style={{ maxWidth: '800px', margin: '48px auto', padding: '0 24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
           <div style={{ width: '40px', height: '40px', background: 'var(--terra)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem' }}>✍️</div>
           <h1 style={{ fontFamily: '"Cormorant Garamond", serif', color: 'var(--verde)', fontSize: '2.5rem' }}>
@@ -170,7 +180,7 @@ export default function AdminDashboard() {
           </h1>
         </div>
 
-        <form onSubmit={handlePublicar} style={{ background: '#fff', padding: '40px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(26,51,40,0.05)', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <form className="admin-form" onSubmit={handlePublicar} style={{ background: '#fff', padding: '40px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(26,51,40,0.05)', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           
           {/* UPLOAD DE IMAGEM */}
           <label style={{ border: '2px dashed var(--areia2)', borderRadius: '12px', padding: '40px', textAlign: 'center', cursor: 'pointer', background: 'var(--creme)', display: 'block' }}>
@@ -191,7 +201,7 @@ export default function AdminDashboard() {
             )}
           </label>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
+          <div className="admin-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <label style={{ color: 'var(--pedra)', fontSize: '0.9rem', fontWeight: '600' }}>Título da Aventura</label>
               <input 
@@ -252,7 +262,7 @@ export default function AdminDashboard() {
               <p style={{ color: 'var(--cinza)' }}>Nenhuma publicação feita ainda.</p>
             ) : (
               postsRecentes.map(post => (
-                <div key={post.id} style={{ background: '#fff', border: '1px solid var(--areia2)', borderRadius: '12px', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div key={post.id} className="admin-post-item" style={{ background: '#fff', border: '1px solid var(--areia2)', borderRadius: '12px', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
                     <h3 style={{ color: 'var(--pedra)', fontSize: '1.1rem', marginBottom: '4px' }}>{post.titulo}</h3>
                     <p style={{ color: 'var(--cinza)', fontSize: '0.85rem' }}>Categoria: {post.categoria}</p>

@@ -33,6 +33,7 @@ body::before {
   background:#fff; border-bottom:1px solid var(--areia2);
   display:flex; justify-content:center;
   padding:0; overflow:hidden;
+  width: 100%;
 }
 .stat-item {
   flex:1; max-width:220px; padding:28px 24px; text-align:center;
@@ -70,6 +71,6 @@ h2.sec-title {
 }
 @media(max-width:600px){
   .depo-grid { grid-template-columns:1fr; }
-  .stats-bar { flex-direction: column; }
-  .stat-item { max-width: 100%; width: 100%; border-right:none; border-bottom:1px solid var(--areia2); }
+  .stats-bar { flex-direction: column; width: 100%; }
+  .stat-item { max-width: 100%; width: 100%; border-right:none; border-bottom:1px solid var(--areia2); padding: 20px; }
 }
