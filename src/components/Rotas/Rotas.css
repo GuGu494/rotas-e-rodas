@@ -83,7 +83,8 @@
 
 @media(max-width:900px){
   .rotas-grid, .dicas-grid { grid-template-columns:1fr 1fr; }
-  .rotas-header { flex-direction:column; align-items:flex-start; gap:16px; }
+  .rotas-header { flex-direction:column; align-items:center; text-align:center; gap:16px; margin-bottom:40px; }
+  .rotas-header .sec-tag { margin-left:auto; margin-right:auto; }
 }
 @media(max-width:600px){
   .rotas-grid, .dicas-grid { grid-template-columns:1fr; }

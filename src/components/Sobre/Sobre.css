@@ -41,5 +41,8 @@
 .parceiro-chip:hover { border-color:var(--terra); color:var(--terra); }
 
 @media(max-width:900px){
-  .sobre-grid { grid-template-columns:1fr; gap:40px; }
+  .sobre-grid { grid-template-columns:1fr; gap:40px; text-align:center; }
+  .sobre-text .sec-sub { margin-left:auto; margin-right:auto; }
+  .parceiros-list { justify-content:center; }
+  .sec-tag { margin-left:auto; margin-right:auto; }
 }
